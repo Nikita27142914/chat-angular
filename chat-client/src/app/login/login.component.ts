@@ -7,11 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  userName = "Nikita"
+  canSubmit: boolean = false
+  loginValue: string = ""
+  passwordValue: string = ""
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  changeLogin(value: string) {
+    this.loginValue = value
+    this.canSubmit = Boolean(this.loginValue) && Boolean(this.passwordValue)
   }
 
+  changePassword(value: string) {
+    this.passwordValue = value
+    this.canSubmit = Boolean(this.loginValue) && Boolean(this.passwordValue)
+  }
 }
